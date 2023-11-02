@@ -5,7 +5,8 @@ reg rst;
 reg issue_alu_select, exec_rd_scc_value;
 reg[5:0] issue_wfid;
 reg[11:0] issue_source_reg1, issue_source_reg2, issue_dest_reg;
-reg[15:0] issue_imm_value;
+reg[15:0] issue_imm_value0;
+reg[15:0] issue_imm_value1;
 reg[31:0] exec_rd_m0_value, issue_instr_pc, issue_opcode;
 reg[63:0] sgpr_source2_data, sgpr_source1_data,
             exec_rd_exec_value, exec_rd_vcc_value;
@@ -25,7 +26,8 @@ salu salu_dut(
       issue_source_reg1,
       issue_source_reg2,
       issue_dest_reg,
-      issue_imm_value,
+      issue_imm_value0,
+      issue_imm_value1,
       issue_opcode,
       issue_wfid,
       issue_alu_select,
@@ -52,6 +54,8 @@ salu salu_dut(
       sgpr_dest_wr_en,
       sgpr_source2_addr,
       sgpr_source1_addr,
+	    sgpr_source1_rd_en,
+	    sgpr_source2_rd_en,
       issue_alu_ready,
       sgpr_instr_done_wfid,
       sgpr_instr_done,
@@ -86,7 +90,8 @@ initial begin
       issue_source_reg1  = 12'd0;
       issue_source_reg2  = 12'd0;
       issue_dest_reg     = 12'd0;
-      issue_imm_value    = 16'd0;
+      issue_imm_value0   = 16'd0;
+      issue_imm_value1   = 16'd0;
       issue_opcode       = 16'd0;
       issue_wfid         = 6'd0;
       exec_rd_exec_value = 64'd0;
@@ -100,7 +105,8 @@ initial begin
       issue_source_reg1  = 12'b110000000001;
       issue_source_reg2  = 12'b110000000010;
       issue_dest_reg     = 12'b110000000110;
-      issue_imm_value    = 16'd0;
+      issue_imm_value0   = 16'd0;
+      issue_imm_value1   = 16'd0;
       issue_opcode       = 32'h08000002;
       issue_wfid         = 6'd2;
       issue_alu_select   = 1'b1;
@@ -115,7 +121,8 @@ initial begin
       issue_source_reg1  = 12'b110000000001;
       issue_source_reg2  = 12'b110000000010;
       issue_dest_reg     = 12'b110000000110;
-      issue_imm_value    = 16'd0;
+      issue_imm_value0   = 16'd0;
+      issue_imm_value1   = 16'd0;
       issue_opcode       = 32'h0800000F;
       issue_wfid         = 6'd2;
       issue_alu_select   = 1'b1;
@@ -130,7 +137,8 @@ initial begin
       issue_source_reg1  = 12'b111000000001;
       issue_source_reg2  = 12'b111000000010;
       issue_dest_reg     = 12'b111000001000;
-      issue_imm_value    = 16'd0;
+      issue_imm_value0   = 16'd0;
+      issue_imm_value1   = 16'd0;
       issue_opcode       = 32'h08000007;
       issue_wfid         = 6'd2;
       issue_alu_select   = 1'b1;
@@ -145,7 +153,8 @@ initial begin
       issue_source_reg1  = 12'b111000000001;
       issue_source_reg2  = 12'b111000000010;
       issue_dest_reg     = 12'b011000001000;
-      issue_imm_value    = 16'd10;
+      issue_imm_value0   = 16'd10;
+      issue_imm_value1   = 16'd10;
       issue_opcode       = 32'h01000002;
       issue_wfid         = 6'd2;
       issue_alu_select   = 1'b1;
@@ -160,7 +169,8 @@ initial begin
       issue_source_reg1  = 12'b111000000001;
       issue_source_reg2  = 12'b111000000010;
       issue_dest_reg     = 12'b011000001000;
-      issue_imm_value    = 16'd10;
+      issue_imm_value0   = 16'd10;
+      issue_imm_value1   = 16'd10;
       issue_opcode       = 32'h01000006;
       issue_wfid         = 6'd2;
       issue_alu_select   = 1'b1;

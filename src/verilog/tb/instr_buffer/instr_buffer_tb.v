@@ -27,10 +27,10 @@ initial begin
 	#11;
 	rst = 0;
 	#10
-	ibuf.instr_mem[4] = 8'h0A;
-	ibuf.instr_mem[5] = 8'h0B;
-	ibuf.instr_mem[6] = 8'h0C;
-	ibuf.instr_mem[7] = 8'h0D;
+	ibuf.instr_memory[4] = 8'h0A;
+	ibuf.instr_memory[5] = 8'h0B;
+	ibuf.instr_memory[6] = 8'h0C;
+	ibuf.instr_memory[7] = 8'h0D;
 	#20
 	fetch_tag = 1;
 	fetch_addr  = 32'h00000004;

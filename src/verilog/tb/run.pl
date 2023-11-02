@@ -8,6 +8,7 @@ my $test = "";
 my $rdir = "";
 my $outdir = "";
 my $waves = 0;
+my $dumpfsdb = 0;
 my $glitch = 0;
 my $killtime = 0;
 my $copy = 0;
@@ -50,6 +51,7 @@ $opt_result = GetOptions (
   "rdir=s"       => \$rdir,
   "outdir=s"     => \$outdir,
   "waves"        => \$waves,
+  "dumpfsdb"     => \$dumpfsdb,
   "glitch"       => \$glitch,
   "killtime=s"   => \$killtime,
   "copy"         => \$copy,
@@ -117,6 +119,10 @@ if(1 == $waves)
   {
     $waveform = "$waveform +dump_glitches=1";
   }
+}
+if(1 == $dumpfsdb)
+{
+  $waveform = "+dump_fsdb=1";
 }
 if ("" ne $argument)
 {

@@ -4,6 +4,7 @@ VCS_OPTIONS += -debug_all
 VCS_OPTIONS += +v2k
 VCS_OPTIONS += -sverilog
 VCS_OPTIONS += -l compile.log
+VCS_OPTIONS += ${NOVAS_VCS_ARGS}
 
 ifdef GATES
 VCS_OPTIONS += -timescale=1ps/1ps
@@ -38,6 +39,15 @@ else
 compile: build
 	vcs $(VCS_OPTIONS) *.v *.c ../../../syn/synopsys/synth/*.syn.v ../rtl/common/global_definitions.v ../rtl/vgpr/build/*.v ../rtl/sgpr/build/*.v ../rtl/instr_buffer/build/*.v ../rtl/memory/build/*.v ../rtl/tracemon/build/*.v ../rtl/tracemon/*.c -y ../rtl/common/build/ -v ../lib/saed32nm_modified.v
 endif
+
+run: simv
+	./simv +print_outputs=1 +dump_fsdb=1 -l run.log
+
+browse:
+	dve -full64 -vpd vcdplus.vpd
+
+debug:
+	verdi -sv -f flist.f -top gpu_tb -ssf tb.fsdb &
 
 clean:
 	cd ../rtl && make clean

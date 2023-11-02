@@ -142,7 +142,6 @@ module issue_tb();
       .alu_wfid				(alu_wfid[5:0]),
       .fetchwave_wf_done_wf_id		(fetchwave_wf_done_wf_id[5:0]),
       .fetch_wg_wfid			(fetch_wg_wfid[5:0]),
-      .tracemon_barrier_retire_wfid	(tracemon_barrier_retire_wfid[5:0]),
       .lsu_source_reg1			(lsu_source_reg1[11:0]),
       .lsu_source_reg2			(lsu_source_reg2[11:0]),
       .lsu_source_reg3			(lsu_source_reg3[11:0]),

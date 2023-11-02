@@ -187,6 +187,17 @@ begin
       $finish;
 end
 
+//waveforms
+initial begin
+  if ($test$plusargs("dump_waveforms")) begin
+    $vcdpluson(0, fetch_tb);
+    //$vcdpluson(<level>,scope,<signal>);
+    //Lots of options for dumping waves
+    //(both system calls and run time arguments)
+    // http://read.pudn.com/downloads97/sourcecode/others/399556/vcs_0123.pdf
+  end
+end
+
 always@(posedge clk) begin
    $display("TIME: %g clk: %d  rst: %d  base_wr: %d  wfid: %d  vgpr_base: %d sgpr_base: %d  lds_base: %d PC: %d buff_tag: %h issue_wg_wf_count: %d issue_wf_done_wf_id: %d issue_wf_done_en: %d new_vacant=%h \n", 
    $time, clk, rst, wave_basereg_wr, wave_basereg_wfid, wave_vgpr_base, wave_sgpr_base, wave_lds_base, buff_addr, buff_tag, issue_wg_wf_count, issue_wf_done_wf_id, issue_wf_done_en, fetch_test.wfgen.vmg.new_vacant);
