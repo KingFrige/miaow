@@ -238,6 +238,13 @@ module issue_tb();
       end
    end
 
+	 initial begin
+	 	if ($test$plusargs("dump_fsdb")) begin
+       $fsdbDumpfile("tb.fsdb");
+       $fsdbDumpvars("+all");
+     end
+	 end
+
    initial begin
       decode_barrier = 0;	   
       decode_branch = 0;		

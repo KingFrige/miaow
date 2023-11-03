@@ -49,6 +49,9 @@ browse:
 debug:
 	verdi -sv -f flist.f -top gpu_tb -ssf tb.fsdb &
 
+test:
+	./run.pl -f -r 1 -t test_000_branch -o trial1 -dumpfsdb
+
 clean:
 	cd ../rtl && make clean
 	rm -rf csrc/ simv simv.daidir/ compile.log DVE*

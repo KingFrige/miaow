@@ -260,5 +260,11 @@ initial begin
 	#10
 	$finish;
 end
+initial begin
+  if ($test$plusargs("dump_fsdb")) begin
+    $fsdbDumpfile("tb.fsdb");
+    $fsdbDumpvars("+all");
+  end
+end
 
 endmodule

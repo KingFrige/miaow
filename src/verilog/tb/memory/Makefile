@@ -16,17 +16,23 @@ include ../../make/tb.mk
 #make interact
 #make clean (Deletes the build directory; Also deletes vcs generated files)
 
+VCS_OPTIONS += ${NOVAS_VCS_ARGS}
+VCS_OPTIONS += -debug_all
+
 compile: build
-	vcs -full64 -f build/vcs.list +lint=all -timescale=1ns/1ns -l compile.log -debug_all +v2k -sverilog
+	vcs -full64 $(VCS_OPTIONS) -f build/vcs.list +lint=all -timescale=1ns/1ns -l compile.log -debug_all +v2k -sverilog
 
 run: simv
-	./simv +print_outputs=1 -l run.log
+	./simv +print_outputs=1 +dump_fsdb=1 -l run.log
 
 waves: simv
 	./simv +print_outputs=1 +dump_waveforms=1 -l run.log
 
 browse:
 	dve -full64 -vpd vcdplus.vpd	
+
+debug:
+	verdi -sv -f build/vcs.list -top memory_tb -ssf tb.fsdb &
 
 interact: simv
 	./simv +print_outputs=1 +dump_waveforms=1 -l run.log -gui

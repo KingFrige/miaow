@@ -1,0 +1,14 @@
+../../rtl/alu/alu_controller.v
+../../rtl/alu/alu_definitions.v
+../../rtl/alu/alu_fsm.v
+../../rtl/alu/alu.v
+../../rtl/alu/alu_wb_queue.v
+../../rtl/alu/dest_shift_reg.v
+../../rtl/alu/mux_2_to_1.v
+../../rtl/alu/PS_flops_EX_WB_alu.v
+../../rtl/alu/PS_flops_issue_alu.v
+../../rtl/alu/shift_in.v
+../../rtl/alu/shift_out.v
+../../rtl/alu/src_mux.v
+../../rtl/alu/src_shift_reg.v
+../../rtl/alu/valu.v

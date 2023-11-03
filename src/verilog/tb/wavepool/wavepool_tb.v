@@ -126,5 +126,11 @@ module wavepool_tb;
       // http://read.pudn.com/downloads97/sourcecode/others/399556/vcs_0123.pdf
     end
   end
+  initial begin
+    if ($test$plusargs("dump_fsdb")) begin
+      $fsdbDumpfile("tb.fsdb");
+      $fsdbDumpvars("+all");
+    end
+  end
 
 endmodule

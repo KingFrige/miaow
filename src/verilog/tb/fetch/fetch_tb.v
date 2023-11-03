@@ -197,6 +197,12 @@ initial begin
     // http://read.pudn.com/downloads97/sourcecode/others/399556/vcs_0123.pdf
   end
 end
+initial begin
+	if ($test$plusargs("dump_fsdb")) begin
+    $fsdbDumpfile("tb.fsdb");
+    $fsdbDumpvars("+all");
+  end
+end
 
 always@(posedge clk) begin
    $display("TIME: %g clk: %d  rst: %d  base_wr: %d  wfid: %d  vgpr_base: %d sgpr_base: %d  lds_base: %d PC: %d buff_tag: %h issue_wg_wf_count: %d issue_wf_done_wf_id: %d issue_wf_done_en: %d new_vacant=%h \n", 

@@ -1,1 +1,11 @@
 .project
+*.fsdb
+*.vcd
+*.vpd
+novas_dump.log
+verdiLog/
+ucli.key
+novas.*
+**/tmp/
+tags
+run.log

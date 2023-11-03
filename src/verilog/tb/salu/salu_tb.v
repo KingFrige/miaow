@@ -189,6 +189,13 @@ initial begin
       $finish;
 end
 
+initial begin
+	if ($test$plusargs("dump_fsdb")) begin
+    $fsdbDumpfile("tb.fsdb");
+    $fsdbDumpvars("+all");
+  end
+end
+
 always@(posedge clk)
 begin
       if(sgpr_dest_wr_en)
