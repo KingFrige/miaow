@@ -41,16 +41,18 @@ compile: build
 endif
 
 run: simv
-	./simv +print_outputs=1 +dump_fsdb=1 -l run.log
+	# ./simv +print_outputs=1 +dump_fsdb=1 -l run.log
+	./run.pl -f -r 1 -t test_000_branch  -o test_000_branch  -dumpfsdb
+	./run.pl -f -r 1 -t test_005_add_i32 -o test_005_add_i32 -dumpfsdb
 
 browse:
 	dve -full64 -vpd vcdplus.vpd
 
 debug:
-	verdi -sv -f flist.f -top gpu_tb -ssf tb.fsdb &
+	verdi -sv -vc wave.c -f flist.f -top gpu_tb -ssf results/test_005_add_i32/test_005_add_i32/tb.fsdb &
 
 test:
-	./run.pl -f -r 1 -t test_000_branch -o trial1 -dumpfsdb
+
 
 clean:
 	cd ../rtl && make clean
