@@ -74,13 +74,6 @@ wave.c
 ../rtl/issue/build/vgpr_busy_table_decoder.v
 ../rtl/issue/build/vgpr_busy_table_mux.v
 ../rtl/issue/build/vgpr_comparator.v
-../rtl/lsu/build/ds_addr_calc.v
-../rtl/lsu/build/lsu_addr_calculator.v
-../rtl/lsu/build/lsu_definitions.v
-../rtl/lsu/build/lsu_opcode_decoder.v
-../rtl/lsu/build/lsu_op_manager.v
-../rtl/lsu/build/lsu.v
-../rtl/lsu/build/mtbuf_addr_calc.v
 ../rtl/memory/build/memory.v
 ../rtl/memory/cachesim.c
 ../rtl/salu/build/salu_controller.v

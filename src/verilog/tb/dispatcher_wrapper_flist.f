@@ -1,0 +1,17 @@
+../rtl/dispatcher/allocator.v
+../rtl/dispatcher/cam_allocator.v
+../rtl/dispatcher/cu_handler.v
+../rtl/dispatcher/dis_controller.v
+../rtl/dispatcher/dispatcher.v
+../rtl/dispatcher/gds_resource_table.v
+../rtl/dispatcher/global_resource_table.v
+../rtl/dispatcher/gpu_interface.v
+../rtl/dispatcher/inflight_wg_buffer.v
+../rtl/dispatcher/ram_2_port.v
+../rtl/dispatcher/resource_table.v
+../rtl/dispatcher/resource_update_buffer.v
+../rtl/dispatcher/wg_resource_table.v
+./dispatcher_wrapper/dispatcher_wrapper.v
+./dispatcher_wrapper/dispatcher_hard.v
+./dispatcher_wrapper/dispatcher_hard_host.v
+./dispatcher_wrapper/dispatcher_soft.v
