@@ -332,7 +332,7 @@ module  inflight_wg_buffer
 	     tbl_walk_wg_id_searched <= {WG_ID_WIDTH{1'b0}};
 	     wait_tbl_busy <= 1'h0;
 	     waiting_tbl_pending <= {NUMBER_ENTRIES{1'b0}};
-	     waiting_tbl_valid = {NUMBER_ENTRIES{1'b0}};
+	     waiting_tbl_valid <= {NUMBER_ENTRIES{1'b0}};
 	     wg_waiting_alloc_valid <= 1'h0;
 	     // End of automatics
 
@@ -409,7 +409,7 @@ module  inflight_wg_buffer
 
 	       // Wait for the ack to propagate
 	       ST_RD_HOST_ACK_TO_HOST: begin
-	          waiting_tbl_valid[new_index] = 1'b1;
+	          waiting_tbl_valid[new_index] <= 1'b1;
 	          inflight_tbl_rd_host_st <= ST_RD_HOST_PROPAG_ACK;
 	       end
 
@@ -497,8 +497,8 @@ module  inflight_wg_buffer
 
 	       // Clear the valid bit of the accepted wg
 	       ST_ALLOC_CLEAR_ACCEPTED: begin
-	          waiting_tbl_valid[tbl_walk_idx] = 1'b0;
-	          waiting_tbl_pending[tbl_walk_idx] = 1'b0;
+	          waiting_tbl_valid[tbl_walk_idx] <= 1'b0;
+	          waiting_tbl_pending[tbl_walk_idx] <= 1'b0;
 
 	          inflight_wg_buffer_gpu_valid_i <= 1'b1;
 	          inflight_wg_buffer_gpu_vgpr_size_per_wf_i
@@ -537,7 +537,7 @@ module  inflight_wg_buffer
 
 	       // Clear the valid bit of the rejected wg
 	       ST_ALLOC_CLEAR_REJECTED: begin
-	          waiting_tbl_pending[tbl_walk_idx] = 1'b0;
+	          waiting_tbl_pending[tbl_walk_idx] <= 1'b0;
 	          inflight_tbl_alloc_st <= ST_ALLOC_GET_ALLOC_WG;
 	       end
 	       

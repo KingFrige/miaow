@@ -55,7 +55,7 @@ module cam_allocator
    end 
 
    // For datapath - reset
-   always @(posedge clk or rst) begin
+   always @(posedge clk , posedge rst) begin
       if(rst) begin
 	 cam_valid_entry <= 0;
 	 res_search_en_i <= 0;

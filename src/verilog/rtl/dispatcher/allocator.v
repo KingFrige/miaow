@@ -285,7 +285,7 @@ module allocator
    
    
    
-   always @(posedge clk or rst) begin
+   always @(posedge clk , posedge rst) begin
       if(rst) begin
 	 /*AUTORESET*/
 	 // Beginning of autoreset for uninitialized flops

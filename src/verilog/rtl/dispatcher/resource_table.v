@@ -220,12 +220,12 @@ module resource_table
    assign rtlrr_next_item = get_next_item_wg_slot(res_table_last_rd_reg);
      
    // Implements the resouce table
-   always @(posedge clk or rst) begin
+   always @(posedge clk, posedge rst) begin
       if(rst) begin
-	 m_state = ST_M_IDLE;
-	 a_state = ST_A_IDLE;
-	 d_state = ST_D_IDLE;
-	 f_state = ST_F_IDLE;
+	 m_state <= ST_M_IDLE;
+	 a_state <= ST_A_IDLE;
+	 d_state <= ST_D_IDLE;
+	 f_state <= ST_F_IDLE;
 
 	 alloc_res_en_i <= 0;
 	 alloc_cu_id_i <= 0;

@@ -51,9 +51,6 @@ browse:
 debug:
 	verdi -sv -vc wave.c -f flist.f -top gpu_tb -ssf results/test_005_add_i32/test_005_add_i32/tb.fsdb &
 
-test:
-
-
 clean:
 	cd ../rtl && make clean
 	rm -rf csrc/ simv simv.daidir/ compile.log DVE*

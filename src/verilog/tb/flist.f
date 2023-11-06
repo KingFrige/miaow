@@ -8,7 +8,6 @@
 ../rtl/lsu/lsu_definitions.v
 ../rtl/decode/decode_definitions.v
 gpu_tb.v
-wave.c
 ./dispatcher_wrapper/dispatcher_hard_host.v
 ./dispatcher_wrapper/dispatcher_hard.v
 ./dispatcher_wrapper/dispatcher_soft.v
@@ -75,7 +74,6 @@ wave.c
 ../rtl/issue/build/vgpr_busy_table_mux.v
 ../rtl/issue/build/vgpr_comparator.v
 ../rtl/memory/build/memory.v
-../rtl/memory/cachesim.c
 ../rtl/salu/build/salu_controller.v
 ../rtl/salu/build/salu.v
 ../rtl/salu/build/scalar_alu.v
@@ -128,7 +126,6 @@ wave.c
 ../rtl/rfa/build/rfa.v
 ../rtl/tracemon/build/tracemon.v
 ../rtl/tracemon/build/vgpr_contention_tracker.v
-../rtl/tracemon/tracemon.c
 ../rtl/vgpr/build/mux_256x32b_to_1x32b.v
 ../rtl/vgpr/build/rd_port_mux_8to1.v
 ../rtl/vgpr/build/reg_1024x32b_3r_1w.v

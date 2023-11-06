@@ -22,7 +22,7 @@ module ram_2_port
 
    reg [WORD_SIZE-1 :0]    ram_table[NUM_WORDS-1:0];
 
-   always @(posedge clk or rst) begin
+   always @(posedge clk , posedge rst) begin
       if(rst) begin
 	 rd_word <= 0;
       end else begin
