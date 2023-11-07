@@ -1,0 +1,7 @@
+report/
+output/
+log/
+run/alib-52
+run/*.log
+run/work
+run/.compute_unit_4760.cmvd

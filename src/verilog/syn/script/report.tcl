@@ -19,6 +19,7 @@ report_power -v > ${REPORT_DIR}/power.rpt
 report_power -v -hie >> ${REPORT_DIR}/power.rpt
 
 report_qor > ${REPORT_DIR}/qor.rpt
+report_net > ${REPORT_DIR}/net.rpt
 
 report_resource -hie > ${REPORT_DIR}/resource.rpt
 
